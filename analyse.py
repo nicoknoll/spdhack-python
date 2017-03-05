@@ -17,11 +17,12 @@ def analyze():
             'phrase': t.orth_
         })
 
-    for ent in doc.ents:
-        entities.append({
-            'type': ent.label_,
-            'phrase': ent.text
-        })
+    if doc.ents:
+        for ent in doc.ents:
+            entities.append({
+                'type': ent.label_,
+                'phrase': ent.text
+            })
 
     return json.dumps({
         'types': types,
